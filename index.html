@@ -1,0 +1,118 @@
+
+<!-- Une portion de ce code a été pris de https://github.com/carolinebarriere/carolinebarriere.github.io/tree/master/SEG3125-Module2-Grocery (Caroline Barriere) -->
+<!-- Le code base a été pris de mon lab 2 et transformer pour répondre aux exigence de lab 3 -->
+
+<!-- I took my images from my previous project. In that project i didnt keep track of where i got them from. It was mainly from free png images websites -->
+<!-- image for the icon of the browser : https://image.flaticon.com/icons/svg/68/68892.svg-->
+<!DOCTYPE html>
+<html>
+<head>
+
+  <title>Hooli Grocery Store</title>
+  <link rel="icon" type="image/png" href="Images/basketIcon.png?">
+
+	<!-- This style sheet is taken from  https://www.w3schools.com/howto/howto_js_tabs.asp -->
+    <link href="CSS/style.css" rel="stylesheet" type="text/css">
+    <link href="CSS/client.css" rel="stylesheet" type="text/css">
+    <link href="CSS/products.css" rel="stylesheet" type="text/css">
+
+  </head>
+
+<body onload="populateListProductChoices([false, false, false, false, false]); openInfo(event, 1000);">
+
+  <h1 class="center">Hooli Grocery Store</h1>
+<!-- Tab links, each one with an onclick event associated with it -->
+
+<!-- TODO Change onclick function -->
+<!-- Got the Unicode for the arrows here: https://www.w3schools.com/charsets/ref_utf_arrows.asp -->
+<div class="tab">
+  <button id="previous" class="tablinks buttonLeft" onClick="openInfo(event, -1)">&#8592 Previous</button>
+  <span class="tablinks">Selection</span>
+  <span class="tablinks">Products</span>
+  <span class="tablinks">Your Cart</span>
+  <button id="next" class="tablinks buttonRight" onClick="openInfo(event, 1)">Next &#8594</button>
+</div>
+
+
+<!-- Tab content CLIENT -->
+<div id="1000" class="tabcontent">
+  <h1>Filter Selections</h1>
+  <h4>Please select your dietary needs. These will filter the products you will see in the "Products" section.</h4>
+  
+  <fieldset id="dietSelect" name="dietSelect" onchange="populateListProductChoices([document.getElementById('Vegetarian').checked,  document.getElementById('Gluten').checked,  document.getElementById('Organic').checked,  document.getElementById('Vegan').checked,  document.getElementById('DairyF').checked], 'displayProduct')">
+        <legend>Dietary Needs:</legend>
+        <ul>
+          <li>
+            <input type="checkbox" name="DairyF" id="DairyF">
+            <label for="DairyF">Dairy Free</label>
+          </li>
+          <li>
+            <input type="checkbox" name="Gluten" id="Gluten">
+            <label for="Gluten">Gluten Free</label>
+          </li>
+          <li>
+            <input type="checkbox" name="Organic" id="Organic">
+            <label for="Organic">Organic products</label>
+          </li>
+          <li>
+            <input type="checkbox" name="Vegan" id="Vegan">
+            <label for="Vegan">Vegan products</label>
+          </li>
+          <li>
+            <input type="checkbox" name="Vegetarian" id="Vegetarian">
+            <label for="Vegetarian">Vegetarian products</label>
+          </li>
+        </ul>
+    </fieldset>
+
+  <p>Click on "Next", at the top right, once you have selected all of your dietary needs to see the products.</p>
+
+</div>
+
+
+<!--Accordian implementation by https://www.w3schools.com/howto/howto_js_accordion.asp -->
+
+<!-- Tab content PRODUCTS -->
+<div id="1001" class="tabcontent">
+  <h1>Your products</h1>
+  <h4>Here are all of our products based on your dietary needs.</h4>
+  <p>You can always update your needs by clicking on "Previous", at the top left, and selecting different dietary needs.</p>
+
+  <button class="accordion">Fruits and Vegetables</button>
+  <div id="FruitsAndVeges" class="panel products"></div>
+  
+  <button class="accordion">Bakery</button>
+  <div id="Bakery" class="panel products"></div>
+
+  <button class="accordion">Dairy and Eggs</button>
+  <div id="Dairy" class="panel products"></div>
+  
+  <button class="accordion">Meat</button>
+  <div id="Meat" class="panel products"></div>
+
+  <p>Click on "Next", at the top right, once you have selected all of your items. </p>
+
+</div>
+
+<!-- Tab content CART -->
+<div id="1002" class="tabcontent">
+  <h1>Your Cart</h1>
+  <h4>Here are all of the items you selected.</h4>
+  <p>You can always add more items by clicking on "Previous", at the top left</p>
+  <div id="displayCart" class="panel"></div>
+  <div id="cartTotal"></div>
+</div>
+
+<hr>
+
+<div class="center">
+  <p class="sign">Web Site created by Thierry Laprade (#300067788)</p>
+  <p class="sign">Student in Software Engineering</p>
+</div>
+
+<script src="JS/groceries.js"></script>
+<script src="JS/main.js"></script>
+<script src="JS/htmlDOM.js"></script>
+
+</body>
+</html>
