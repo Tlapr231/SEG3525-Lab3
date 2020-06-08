@@ -6,7 +6,7 @@
 //Note that i went on the metro grecery store web site for the prices on the items. https://www.metro.ca/en/online-grocery/
 var products = [
 	{
-		name: "Brocoli",
+		name: "Broccoli",
 		type: "fruitsAndVege",
 		vegetarian: true,
 		glutenFree: true,
@@ -46,7 +46,7 @@ var products = [
 		price: 2.46
 	},
 	{
-		name: "Tomatoe",
+		name: "Tomato",
 		type: "fruitsAndVege",
 		vegetarian: true,
 		glutenFree: true,

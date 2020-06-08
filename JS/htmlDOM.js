@@ -90,7 +90,7 @@ function populateListProductChoices(slct1) {
 		labelCard.htmlFor = `#${optionArray[i].name}`;
 		
 		var h2Card = document.createElement("h2");
-		h2Card.innerText = `${optionArray[i].name} (${optionArray[i].price}$)`;
+		h2Card.innerText = `${optionArray[i].name} ($${optionArray[i].price})`;
 		labelCard.appendChild(h2Card);
 		divCardBody.appendChild(labelCard);
 		
@@ -205,7 +205,7 @@ function populateCartWithProducts(chosenProducts) {
         //price of the item
         var labelCard = document.createElement("label");
         labelCard.className  = "card";
-        labelCard.innerText = `${getItemPrice(product, amount).toFixed(2)}$`; //https://www.tutorialspoint.com/How-to-format-a-number-with-two-decimals-in-JavaScript#:~:text=Use%20the%20toFixed()%20method,the%20right%20of%20the%20decimal.
+        labelCard.innerText = `$${getItemPrice(product, amount).toFixed(2)}`; //https://www.tutorialspoint.com/How-to-format-a-number-with-two-decimals-in-JavaScript#:~:text=Use%20the%20toFixed()%20method,the%20right%20of%20the%20decimal.
         divCardBody.appendChild(labelCard);
     
         //get the total price
@@ -217,7 +217,7 @@ function populateCartWithProducts(chosenProducts) {
     }
 
     var total = document.createElement("h4");
-    total.innerText = `Your total is : ${totalprice.toFixed(2)}$`;
+    total.innerText = `Your total is : $${totalprice.toFixed(2)}`;
     //reset the total section and add the new total
     document.getElementById("cartTotal").innerHTML = "";
     document.getElementById("cartTotal").appendChild(total);
